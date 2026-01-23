@@ -6,5 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reaction extends Model
 {
-    //
+    
+    protected $fillable = [
+        'post_id',
+        'reaction'
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
+    // relationships
+    public function post() {
+        return $this->belongsTo(Post::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
 }

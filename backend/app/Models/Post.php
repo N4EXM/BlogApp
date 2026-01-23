@@ -21,7 +21,36 @@ class Post extends Model
 
     protected $casts = [
         'title' => 'string',
-        'slug' => 'string'
+        'slug' => 'string',
     ];
+
+    // relationships
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function bookmark() {
+        return $this->belongsToMany(Bookmark::class);
+    }
+
+    public function category() {
+        return $this->has(Category::class);
+    }
+
+    public function comment() {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function postBlock() {
+        return $this->hasMany(PostBlock::class);
+    }
+
+    public function reaction() {
+        return $this->hasMany(Reaction::class);
+    }
+
+    public function tag() {
+        return $this->hasMany(Tag::class);
+    }
 
 }
