@@ -10,6 +10,7 @@ class PostBlock extends Model
     protected $fillable = [
         'post_id',
         'type',
+        'content',  
         'sort_order',
         'block_json'
     ];

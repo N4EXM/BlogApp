@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('post_id')->constrained()->onDelete('cascade');
             $table->enum('type', ['paragraph', 'image', 'heading', 'embed']);
+            $table->text('content')->nullable();
             $table->integer('sort_order');
-            $table->json('block_json');
+            $table->json('block_json')->nullable();
             $table->timestamps();
         });
     }
