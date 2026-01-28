@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const TextInput = ({ value, onChange, name, secondaryText, type, isRequired = false, secondaryTextShow, placeholderText, showName = true }) => {
+const TextareaInput = ({ value, onChange, name, secondaryText, type, isRequired = false, secondaryTextShow, placeholderText, showName = true }) => {
 
 
     return (
@@ -13,14 +13,14 @@ const TextInput = ({ value, onChange, name, secondaryText, type, isRequired = fa
                 {name}
                 <span className={`${isRequired ? 'text-rose-500' : 'hidden'} `}>*</span>
             </h3>
-            <input 
+            <textarea
                 type={type}
                 value={value}
                 placeholder={placeholderText}
                 onChange={onChange}
-                className='w-full h-fit p-2 pl-2.5 rounded dark:text-dark-text border-primary dark:border-dark-primary dark:bg-background/5 bg-background border-2 text-base/tight outline-none'
+                className='w-full h-40 resize-none p-2 pl-2.5 rounded dark:text-dark-text border-primary dark:border-dark-primary dark:bg-background/5 bg-background border-2 text-base/tight outline-none'
                 required={isRequired}
-            />
+            ></textarea>
             <p
                 className={`${secondaryTextShow ? 'block' : 'hidden'} dark:text-dark-text/60 text-text/60 pl-0.5 text-sm`}
             >
@@ -30,4 +30,4 @@ const TextInput = ({ value, onChange, name, secondaryText, type, isRequired = fa
     )
 }
 
-export default TextInput
+export default TextareaInput

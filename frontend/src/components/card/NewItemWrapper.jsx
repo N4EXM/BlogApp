@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import NewItemWrapperBtn from '../buttons/NewItemWrapperBtn'
 import ImageInput from '../inputs/ImageInput'
+import TextInput from '../inputs/TextInput'
+import NewPostTitleInput from '../inputs/PostTitleInput'
+import PostParagraphInput from '../inputs/PostParagraphInput'
 
-const NewItemWrapper = ({ block, changeIndex, deleteFtn, ftn, index, changeValue }) => {
+const NewItemWrapper = ({ block, changeIndex, deleteFtn, index, changeValue }) => {
     
     const [expand, setExpand] = useState(true)
 
@@ -64,10 +67,28 @@ const NewItemWrapper = ({ block, changeIndex, deleteFtn, ftn, index, changeValue
                 className={`w-full h-full px-1 ${expand ? 'flex' : 'hidden'}`}
             >
                 {
+                    (block?.type === 'Title')
+                    &&  <NewPostTitleInput
+                            id={block?.id}
+                            value={block?.content}
+                            onChange={changeValue}
+                        />
+                }
+                {
                     (block?.type === 'Image' || block?.type === 'Thumbnail') 
                     &&  <ImageInput
                             id={block?.id}
                             value={block?.file}
+                            onChange={changeValue}
+                            secondaryText={'Preferred size (1920 X 1080)'}
+                            secondaryTextShow={true}
+                        />
+                }
+                {
+                    (block?.type === 'Paragraph')
+                    &&  <PostParagraphInput
+                            id={block?.id}
+                            value={block?.content}
                             onChange={changeValue}
                         />
                 }

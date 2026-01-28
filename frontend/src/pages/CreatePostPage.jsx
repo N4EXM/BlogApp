@@ -153,6 +153,28 @@ const CreatePostPage = () => {
             
         }
 
+        else if (type === 'Title') {
+
+            setPostDetails({
+                ...postDetails,
+                title: value
+            })
+
+        }
+
+        else if (type === 'Paragraph') {
+
+            setPostDetails((prevPosts) => ({
+                ...prevPosts,
+                json_blocks: prevPosts.json_blocks.map(block =>
+                    block.id === id 
+                    ? { ...block, content: value } 
+                    : block
+                )
+            }))
+
+        }
+
 
     }
 
@@ -231,7 +253,7 @@ const CreatePostPage = () => {
 
                 {/* create new block */}
                 <div
-                    className={`${selectedNav === 'Content' ? 'flex' : 'hidden'} absolute bottom-0 left-0 w-full bg-background dark:bg-dark-background rounded-b-md flex flex-row gap-2`}
+                    className={`${selectedNav === 'Content' ? 'flex' : 'hidden'} absolute bottom-0 left-0 w-full bg-background dark:bg-dark-background rounded-b-md flex flex-row gap-2 z-10`}
                 >
                     <div
                         className='flex flex-row gap-2 w-full h-full dark:bg-background/19 p-2'

@@ -45,7 +45,7 @@ const LoginPage = () => {
 
     return (
         <div
-            className='grid grid-cols-2 w-full h-screen bg-secondary dark:bg-dark-secondary font-poppins p-5'
+            className='grid grid-cols-2 w-full h-screen bg-background dark:bg-dark-background font-poppins p-5'
         >
             
             {/* first part */}

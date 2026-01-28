@@ -4,7 +4,7 @@
 @theme {
 
     --font-poppins: 'Poppins';
-
+    
     --color-text: hsl(243, 76%, 5%);
     --color-background: hsl(240, 60%, 99%);
     --color-primary: hsl(243, 68%, 48%);
@@ -16,5 +16,4 @@
     --color-dark-primary: hsl(243, 68%, 52%);
     --color-dark-secondary: hsl(243, 100%, 7%);
     --color-dark-accent: hsl(242, 100%, 38%);
-
 }

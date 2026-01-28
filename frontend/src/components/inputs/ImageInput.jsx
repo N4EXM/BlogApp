@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const ImageInput = ({ value, onChange, id}) => {
+const ImageInput = ({ value, onChange, id, secondaryText, secondaryTextShow}) => {
     
     const fileInputRef = useRef(null)
 
@@ -24,7 +24,9 @@ const ImageInput = ({ value, onChange, id}) => {
     }
 
     return (
-        <>
+        <div
+            className='flex flex-col w-full h-full gap-2'
+        >
             <input 
                 type="file" 
                 className='appearance-none hidden' 
@@ -34,7 +36,7 @@ const ImageInput = ({ value, onChange, id}) => {
             {
                 file === null
                 ?   <button
-                        className='w-full h-full  flex items-center justify-center border-dashed border-2 border-dark-text/20 rounded aspect-video'
+                        className='w-full h-full  flex items-center justify-center border-dashed border-2 dark:border-dark-primary border-accent bg-background rounded aspect-video dark:bg-background/5'
                         onClick={() => triggerFileInput()}
                     >
                         <div
@@ -70,7 +72,12 @@ const ImageInput = ({ value, onChange, id}) => {
                         />
                     </div>
             }
-        </>
+            <h2
+                className={`${secondaryTextShow ? 'flex' : 'hidden'} text-sm text-text/60 dark:text-dark-text/60 pl-0.5`}
+            >
+                {secondaryText}
+            </h2>
+        </div>
         
     )
 }
