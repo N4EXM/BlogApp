@@ -123,30 +123,34 @@ const CreatePostPage = () => {
 
     }
 
-    const handleAddImageToBlock = (id, value) => {
-
-        const imageBlock = postDetails.json_blocks.filter((prev) => prev.id === id)
-
-        const newImageBlock = {
-            id: id,
-            type: imageBlock.type,
-            sort_order: imageBlock.sort_order,
-            path_url: value.name,
-            file: value
-        }
-
-        setPostDetails({ })
-
-
-
-
-    }
-
     const handleChangeBlockValue = (id, value, type) => {
 
         // image blocks
         if (type === 'Image' || type === 'Thumbnail') {
-            handleAddImageToBlock(id, value)
+
+            if (value === null) {
+
+                setPostDetails((prevPosts) => ({
+                    ...prevPosts,
+                    json_blocks: prevPosts.json_blocks.map(block =>
+                        block.id === id 
+                        ? { ...block, path_url: null, file: null } 
+                        : block
+                    )
+                }))
+
+            }
+            else {
+                setPostDetails((prevPosts) => ({
+                    ...prevPosts,
+                    json_blocks: prevPosts.json_blocks.map(block =>
+                        block.id === id 
+                        ? { ...block, path_url: value.name, file: value } 
+                        : block
+                    )
+                }))
+            }
+            
         }
 
 
@@ -195,6 +199,7 @@ const CreatePostPage = () => {
                         {
                             postDetails.json_blocks.map((block, index) => (
                                 <NewItemWrapper
+                                    key={index}                                
                                     block={block}
                                     deleteFtn={() => handleDeleteBlock(block.id)}
                                     changeIndex={handleChangeBlockIndex}

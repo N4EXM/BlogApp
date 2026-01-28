@@ -29,7 +29,7 @@ const NewItemWrapper = ({ block, changeIndex, deleteFtn, ftn, index, changeValue
 
     return (
         <div
-            className='w-full h-fit bg-dark-background/10 dark:bg-text/20 p-3 rounded-md flex flex-col gap-5'
+            className='w-full h-fit bg-dark-background/10 dark:bg-dark-background/20 p-3 rounded-md flex flex-col gap-5'
         >
             <div
                 className='flex flex-row items-center justify-between'
