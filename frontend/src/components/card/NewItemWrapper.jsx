@@ -5,6 +5,7 @@ import TextInput from '../inputs/TextInput'
 import NewPostTitleInput from '../inputs/PostTitleInput'
 import PostParagraphInput from '../inputs/PostParagraphInput'
 import PostHeadingInput from '../inputs/PostHeadingInput'
+import PostLinkInput from '../inputs/PostLinkInput'
 
 const NewItemWrapper = ({ block, changeIndex, deleteFtn, index, changeValue }) => {
     
@@ -54,6 +55,7 @@ const NewItemWrapper = ({ block, changeIndex, deleteFtn, index, changeValue }) =
                     {
                         optionBtns.map((btn, index) => (
                             <NewItemWrapperBtn
+                                key={btn.name}
                                 icon={btn.icon}
                                 index={index}
                                 maxlength={optionBtns.length}
@@ -99,6 +101,15 @@ const NewItemWrapper = ({ block, changeIndex, deleteFtn, index, changeValue }) =
                             id={block?.id}
                             content={block?.content}
                             headingType={block?.headingType}
+                            changeValue={changeValue}
+                        />
+                }
+                {
+                    (block?.type === 'Hyperlink') 
+                    &&  <PostLinkInput
+                            id={block?.id}
+                            link={block.link}
+                            text={block.text}
                             onChange={changeValue}
                         />
                 }
