@@ -10,7 +10,7 @@ import GeneralBtns from '../components/buttons/GeneralBtns'
 import SmallCard from '../components/card/SmallCard'
 import CategoryDropdown from '../components/inputs/CategoryDropdown'
 import { getCurrentTime } from '../utils/DateUtils'
-
+import ToggleBtn from '../components/buttons/ToggleBtn'
 
 const CreatePostPage = () => {
 
@@ -33,7 +33,8 @@ const CreatePostPage = () => {
         ],
         slug: '',
         tags: [],
-        category: null
+        category: null,
+        viewable: true
     }) 
     const [totalBlocks, setTotalBlocks] = useState(2)
     const [selectedNav, setSelectedNav] = useState('SEO')
@@ -500,6 +501,21 @@ const CreatePostPage = () => {
                         value={postDetails.category}
                     />
 
+                </div>
+
+                {/* is viewable */}
+                <div
+                    className='w-full h-full flex items-end justify-end gap-3'
+                >
+                    <h2
+                        className='font-medium text-text dark:text-dark-text'
+                    >
+                        Viewable
+                    </h2>
+                    <ToggleBtn
+                        isActive={postDetails.viewable}
+                        toggleFtn={() => setPostDetails({...postDetails, viewable: !postDetails.viewable})}
+                    />
                 </div>
 
             </div>

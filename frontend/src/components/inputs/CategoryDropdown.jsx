@@ -47,7 +47,7 @@ const CategoryDropdown = ({ onChange, value }) => {
 
             {/* options */}
             <div
-                className={`absolute top-12 left-0 bg-secondary flex-col dark:bg-background/10 rounded-md w-full h-48 ${expand ? 'flex' : 'hidden'} overflow-y-scroll no-scrollbar`}
+                className={`absolute top-12 left-0 z-50 bg-secondary flex-col dark:bg-background/10 rounded-md w-full h-48 ${expand ? 'flex' : 'hidden'} overflow-y-scroll no-scrollbar`}
             >
                 {
                     data?.categories.map((cat) => (

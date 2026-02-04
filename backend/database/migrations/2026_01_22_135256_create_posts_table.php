@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');
+            $table->boolean('viewable')->default(true);
             $table->timestamps();   
         });
     }
