@@ -46,7 +46,7 @@ function App() {
         />
 
         <Route
-          path='/Dashboard/NewPost?:slug'
+          path='/Dashboard/viewpost/:slug'
           element={
             <ProtectedRoute>
               <ViewPage/>

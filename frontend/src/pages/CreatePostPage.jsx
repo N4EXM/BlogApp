@@ -6,7 +6,7 @@ import CreateBlockBtn from '../components/buttons/CreateBlockBtn'
 import JsonViewer from '../components/general/JsonViewer'
 import PostSlugInput from '../components/inputs/PostSlugInput'
 import TagBlock from '../components/card/TagBlock'
-import GeneralBtns from '../components/buttons/GeneralBtns'
+import GeneralBtn from '../components/buttons/GeneralBtn'
 import SmallCard from '../components/card/SmallCard'
 import CategoryDropdown from '../components/inputs/CategoryDropdown'
 import { getCurrentTime } from '../utils/DateUtils'
@@ -333,7 +333,8 @@ const CreatePostPage = () => {
     ///////////////////////////////////////////////////////////////////////////////////
     
     const handleViewFtn = () => {
-        navigate(`/Dashboard/Newpost/${postDetails.slug}`, { state: postDetails})
+        // console.log('this is being clicked')
+        navigate(`/Dashboard/viewpost/${postDetails.slug}`, { state: postDetails} )
     }
 
     const handlePublishBtn = () => {
@@ -454,7 +455,7 @@ const CreatePostPage = () => {
                 >
                     {
                         btns.map((btn) => (
-                            <GeneralBtns
+                            <GeneralBtn
                                 key={btn.name}
                                 colour={btn.colour}
                                 name={btn.name}
@@ -470,7 +471,7 @@ const CreatePostPage = () => {
                     className='w-full h-fit flex justify-end'
                 >
                     <ToggleCard
-                        text={'Is your post available for everyone to see?'}
+                        text={'Allow users to see your post?'}
                         value={postDetails.viewable}
                         toggleFtn={() => setPostDetails({...postDetails, viewable: !postDetails.viewable})}
                         purpose={'Viewable'}

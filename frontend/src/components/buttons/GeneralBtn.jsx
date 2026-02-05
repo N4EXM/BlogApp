@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GeneralBtns = ({ colour, textColour, name, icon, ftn }) => {
+const GeneralBtn = ({ colour, textColour, name, icon, ftn }) => {
     return (
         <button
             className={`
@@ -15,4 +15,4 @@ const GeneralBtns = ({ colour, textColour, name, icon, ftn }) => {
     )
 }
 
-export default GeneralBtns
+export default GeneralBtn

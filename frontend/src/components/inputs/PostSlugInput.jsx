@@ -16,6 +16,7 @@ const PostSlugInput = ({ slug , title, onChange }) => {
 
     const convertTitleToSlug = () => {
         hyphenateAndLowercase(title)
+        onChange
     }
 
     function hyphenateAndLowercase(text) {
