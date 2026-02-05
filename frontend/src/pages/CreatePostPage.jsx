@@ -10,12 +10,14 @@ import GeneralBtn from '../components/buttons/GeneralBtn'
 import SmallCard from '../components/card/SmallCard'
 import CategoryDropdown from '../components/inputs/CategoryDropdown'
 import { getCurrentTime } from '../utils/DateUtils'
-import ToggleBtn from '../components/buttons/ToggleBtn'
-import { useNavigate } from 'react-router-dom'
 import ToggleCard from '../components/card/ToggleCard'
+import ViewPostCard from '../components/card/ViewPostCard'
 
 
 const CreatePostPage = () => {
+
+    // toggles
+    const [toggleView, setToggleView] = useState(false)
 
     const [postDetails, setPostDetails] = useState({
         title: '',
@@ -66,7 +68,7 @@ const CreatePostPage = () => {
             name: 'View',
             icon: <svg  xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill={"currentColor"} viewBox={"0 0 24 24"}><path d="M12 9a3 3 0 1 0 0 6 3 3 0 1 0 0-6"></path><path d="M12 19c7.63 0 9.93-6.62 9.95-6.68.07-.21.07-.43 0-.63-.02-.07-2.32-6.68-9.95-6.68s-9.93 6.61-9.95 6.67c-.07.21-.07.43 0 .63.02.07 2.32 6.68 9.95 6.68Zm0-12c5.35 0 7.42 3.85 7.93 5-.5 1.16-2.58 5-7.93 5s-7.42-3.84-7.93-5c.5-1.16 2.58-5 7.93-5"></path></svg>,
             colour: 'normal',
-            ftn: () => handleViewFtn()
+            ftn: () => toggleViewBtn()
         },
         {
             name: 'Publish',
@@ -85,9 +87,6 @@ const CreatePostPage = () => {
             purpose: getCurrentTime().formatted
         }
     ]
-
-    // navigation
-    const navigate = useNavigate()
 
     // json block functions
     ///////////////////////////////////////////////////////////////////////////////////
@@ -332,9 +331,8 @@ const CreatePostPage = () => {
     // general btn functions
     ///////////////////////////////////////////////////////////////////////////////////
     
-    const handleViewFtn = () => {
-        // console.log('this is being clicked')
-        navigate(`/Dashboard/viewpost/${postDetails.slug}`, { state: postDetails} )
+    const toggleViewBtn = () => {
+        
     }
 
     const handlePublishBtn = () => {
@@ -524,6 +522,9 @@ const CreatePostPage = () => {
                 </div>
 
             </div>
+
+            {/* View post component */}
+            <ViewPostCard/>
 
         </DashboardLayout>
     )

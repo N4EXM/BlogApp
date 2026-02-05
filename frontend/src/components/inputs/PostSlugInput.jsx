@@ -15,12 +15,12 @@ const PostSlugInput = ({ slug , title, onChange }) => {
     }
 
     const convertTitleToSlug = () => {
-        hyphenateAndLowercase(title)
-        onChange
+        setCurrentSlug(hyphenateAndLowercase(title))
+        onChange(hyphenateAndLowercase(title))
     }
 
     function hyphenateAndLowercase(text) {
-        setCurrentSlug( 
+        return (
             text.trim()
                 .toLowerCase()
                 .replace(/[^\w\s-]/g, '') // Remove non-word characters except spaces and hyphens

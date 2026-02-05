@@ -45,15 +45,6 @@ function App() {
           }
         />
 
-        <Route
-          path='/Dashboard/viewpost/:slug'
-          element={
-            <ProtectedRoute>
-              <ViewPage/>
-            </ProtectedRoute>
-          }
-        />
-
       </Routes>
     </BrowserRouter>
   )

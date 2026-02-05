@@ -9,7 +9,7 @@ const DashboardLayout = ({ children }) => {
         >   
             <Sidebar/>
             <div
-                className='w-full h-full grid grid-rows-16 grid-cols-16 p-8 col-span-12 row-span-16 '
+                className='w-full h-full grid grid-rows-16 grid-cols-16 p-8 col-span-12 row-span-16 relative'
             >
                 <DashboardTopBar/>
                 {children}
