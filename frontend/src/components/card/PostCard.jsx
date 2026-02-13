@@ -33,7 +33,7 @@ const PostCard = ({ image, title, views, status, date, category, tags }) => {
                 className='flex flex-row items-center justify-between w-full h-fit'
             >
                 <h3
-                    className='text-text/80 dark:text-dark-text/80 text-xs/tight'
+                    className='text-accent/80 dark:text-dark-text/80 text-xs/tight'
                 >   
                     {category}
                 </h3>
@@ -50,7 +50,7 @@ const PostCard = ({ image, title, views, status, date, category, tags }) => {
                 </h2>
             </div>
 
-            <span className='w-full min-h-px bg-primary dark:bg-dark-primary'></span>
+            <span className='w-full min-h-px bg-accent dark:bg-dark-accent'></span>
 
             {/* tags */}
             <div

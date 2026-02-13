@@ -1,7 +1,7 @@
 import React from 'react'
 import TextInput from '../inputs/TextInput'
 
-const SearchBarInput = ({ value, changeQuery }) => {
+const SearchBarInput = ({ value, changeQuery, placeholderText = 'Search a post...' }) => {
 
     return (
         <div
@@ -11,7 +11,7 @@ const SearchBarInput = ({ value, changeQuery }) => {
                 value={value}
                 onChange={(e) => changeQuery(e.target.value)}
                 secondaryTextShow={false}
-                placeholderText={'Search post...'}
+                placeholderText={placeholderText}
                 showName={false}
             />
             <button

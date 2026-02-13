@@ -6,7 +6,7 @@ const PostStatisticCard = ({ icon, name, value }) => {
             className='flex flex-row gap-4 w-full h-full p-5 rounded bg-secondary dark:bg-dark-secondary'
         >
 
-            <span className='w-1 h-full bg-primary rounded-full'></span>
+            <span className='w-1 h-full bg-accent dark:bg-dark-accent rounded-full'></span>
 
             {/* text */}
             <div
@@ -18,7 +18,7 @@ const PostStatisticCard = ({ icon, name, value }) => {
                     {name}
                 </h2>
                 <p
-                    className='text-2xl text-text dark:text-dark-text font-bold'
+                    className='text-2xl text-text dark:text-dark-textos font-bold'
                 >
                     {value}
                 </p>
@@ -29,7 +29,7 @@ const PostStatisticCard = ({ icon, name, value }) => {
                 className='flex items-start justify-start'
             >   
                 <i  
-                    className='p-2 rounded-md bg-primary dark:bg-dark-primary text-dark-text'
+                    className='p-2 rounded-md  bg-primary dark:bg-dark-primary text-dark-text'
                 >
                     {icon}
                 </i>
