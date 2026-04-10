@@ -13,7 +13,7 @@ const TextInput = ({ text, handleText, name, extraText, isRequired }) => {
             <input 
                 type="text" 
                 className='placeholder:text-text/50 outline-none w-full p-2 border-2 border-primary rounded bg-slate-200'
-                onChange={(e) => handleText(e.target.value)}
+                onChange={handleText}
                 value={text}
                 placeholder='Enter a title...'
             />

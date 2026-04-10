@@ -2,7 +2,7 @@ import React from 'react'
 import DropDownBox from './DropDownBox'
 import ImageInput from '../inputs/ImageInput'
 
-const FeaturedImage = ({ image, handleThumbnail }) => {
+const FeaturedImageBlock = ({ image, handleThumbnail }) => {
     return (
         <DropDownBox
             isRequired={false}
@@ -17,4 +17,4 @@ const FeaturedImage = ({ image, handleThumbnail }) => {
     )
 }
 
-export default FeaturedImage
+export default FeaturedImageBlock

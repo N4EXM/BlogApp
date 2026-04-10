@@ -1,29 +1,38 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DropDownBox from './DropDownBox'
 import TitleBox from './TitleBox'
-import FeaturedImage from './FeaturedImage'
+import FeaturedImageBlock from './FeaturedImageBlock'
+import RichTextEditor from '../inputs/RichTextEditor'
 
 const PostHandlerContainer = ({ data }) => {
 
     const tabs = ['Featured', 'Content', 'SEO']
     const [currentTab, setCurrentTab] = useState('Featured')
 
-
-    // featured tab
-    const [title, setTitle] = useState('')
-    const [thumbnail, setThumbnail] = useState(null)
-
+    const [featuredTab, setFeaturedTab] = useState({
+        title: '',
+        thumbnail: null,
+        excerpt: null        
+    })
 
     // functions
 
     const handleThumbnail = (image) => {
-        if (thumbnail === image) {
-            setThumbnail(null)
+        if (featuredTab.thumbnail === image) {
+            setFeaturedTab({...featuredTab, thumbnail: null})
         }
         else {
-            setThumbnail(image)
+            setFeaturedTab({...featuredTab, thumbnail: image})
         }
     }
+
+    const handleExcerpt = (contentJSON) => {
+        setFeaturedTab({ ...featuredTab, excerpt: contentJSON })
+    }
+
+    useEffect(() => {
+        console.log(featuredTab)
+    }, [featuredTab])
 
 
     return (
@@ -50,20 +59,24 @@ const PostHandlerContainer = ({ data }) => {
 
             {/* normal wrapper */}
             <div
-                className='p-5 w-full h-9/10 flex flex-col'
+                className='p-5 w-full h-full flex flex-col overflow-hidden'
             >
 
                 {/* featured */}
                 <div
-                    className={`${currentTab === 'Featured' ? 'flex' : 'hidden'} flex-col gap-4 w-full overflow-y-scroll pb-10 `}
+                    className={`${currentTab === 'Featured' ? 'flex' : 'hidden'} flex-col gap-4 w-full overflow-y-scroll pb-4 scrollbar-hide`}
                 >
                     <TitleBox
-                        title={title}
-                        setTitle={setTitle}
+                        title={featuredTab.title}
+                        setTitle={(e) => setFeaturedTab({...featuredTab, title: e.target.value})}
                     />
-                    <FeaturedImage
+                    <FeaturedImageBlock
                         handleThumbnail={handleThumbnail}
-                        image={thumbnail}
+                        image={featuredTab.thumbnail}
+                    />
+                    <RichTextEditor
+                        initialContent={featuredTab.excerpt}
+                        onContentChange={handleExcerpt}
                     />
                 </div>
                 

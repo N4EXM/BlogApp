@@ -10,7 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@lexical/html": "^0.43.0",
+    "@lexical/list": "^0.43.0",
+    "@lexical/markdown": "^0.43.0",
     "@lexical/react": "^0.42.0",
+    "@lexical/rich-text": "^0.43.0",
+    "@lexical/selection": "^0.43.0",
+    "@lexical/utils": "^0.43.0",
+    "@lexkit/editor": "^0.0.38",
     "@tailwindcss/vite": "^4.2.2",
     "@tanstack/react-router": "^1.168.10",
     "lexical": "^0.42.0",
