@@ -2,7 +2,7 @@ import React from 'react'
 import DropDownBox from './DropDownBox'
 import TextInput from '../inputs/TextInput'
 
-const TitleBox = ({ title, setTitle }) => {
+const TitleBlock = ({ title, setTitle }) => {
     return (
         <DropDownBox
             name='Title'
@@ -19,4 +19,4 @@ const TitleBox = ({ title, setTitle }) => {
     )
 }
 
-export default TitleBox
+export default TitleBlock

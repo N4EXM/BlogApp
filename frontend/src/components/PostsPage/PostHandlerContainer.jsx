@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import DropDownBox from './DropDownBox'
-import TitleBox from './TitleBox'
+import TitleBlock from './TitleBlock'
 import FeaturedImageBlock from './FeaturedImageBlock'
-import RichTextEditor from '../inputs/RichTextEditor'
+import RichTextEditorBlock from './RichTextEditorBlock'
 
 const PostHandlerContainer = ({ data }) => {
 
@@ -66,7 +66,7 @@ const PostHandlerContainer = ({ data }) => {
                 <div
                     className={`${currentTab === 'Featured' ? 'flex' : 'hidden'} flex-col gap-4 w-full overflow-y-scroll pb-4 scrollbar-hide`}
                 >
-                    <TitleBox
+                    <TitleBlock
                         title={featuredTab.title}
                         setTitle={(e) => setFeaturedTab({...featuredTab, title: e.target.value})}
                     />
@@ -74,10 +74,7 @@ const PostHandlerContainer = ({ data }) => {
                         handleThumbnail={handleThumbnail}
                         image={featuredTab.thumbnail}
                     />
-                    <RichTextEditor
-                        initialContent={featuredTab.excerpt}
-                        onContentChange={handleExcerpt}
-                    />
+                    <RichTextEditorBlock/>
                 </div>
                 
             </div>
