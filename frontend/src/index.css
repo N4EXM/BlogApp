@@ -33,7 +33,13 @@
     }  /* Base list styles */
     .tiptap ul, 
     .tiptap ol {
-        @apply pl-6 text-primary;
+        @apply pl-6 text-text;
+    }
+    .tiptap ol li:marker {
+        @apply text-primary
+    }
+    .tiptap ul li:marker {
+        @apply text-primary
     }
 
     /* Unordered list styles */
@@ -88,7 +94,7 @@
     }
 
     .tiptap code {
-        @apply bg-gray-100 text-red-600 rounded px-1.5 py-0.5 text-sm font-mono;
+        @apply bg-gray-200 text-primary rounded px-1.5 py-0.5 text-sm font-mono;
     }
     
     /* Code block container */
@@ -104,6 +110,32 @@
     /* Optional: Add syntax highlighting base styles */
     .tiptap pre code .token {
         @apply inline;
+    }
+
+    /* Blockquote with subtle background */
+    .tiptap blockquote {
+
+        @apply border-l-accent border-l-4;
+
+        /* margin: 1.5rem 0; */
+        padding-left: 0.75em;
+        background: #f9fafb; /* Gray-50 */
+        /* border-left: 4px solid #3b82f6; Blue-500 */
+        border-radius: 0 0.5rem 0.5rem 0;
+        font-style: italic;
+        color: #1f2937; /* Gray-800 */
+    }
+
+    .tiptap blockquote p {
+        margin: 0.5rem 0;
+    }
+
+    .tiptap blockquote p:first-child {
+        margin-top: 0;
+    }
+
+    .tiptap blockquote p:last-child {
+        margin-bottom: 0;
     }
 
 }
