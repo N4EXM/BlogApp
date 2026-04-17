@@ -138,7 +138,9 @@ const Toolbar = () => {
     }
 
     return (
-        <div className='flex flex-row items-center gap-0 w-full h-fit rounded-xs border-2 border-primary/70 divide-primary/70 divide-x overflow-y-scroll scrollbar-hide sticky top-0 left-0 z-10 bg-background '>
+        <div 
+            className='flex flex-row items-center gap-0 w-full h-fit rounded-xs rounded-b-none border-2 border-primary/70 divide-primary/70 divide-x sticky top-0 left-0 z-50 bg-background '
+        >
 
             {/* style commands */}
             <div className='flex flex-row items-center gap-0 w-fit h-full px-0.5'>
