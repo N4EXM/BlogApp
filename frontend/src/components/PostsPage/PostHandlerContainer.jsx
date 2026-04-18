@@ -6,6 +6,7 @@ import RichTextEditorBlock from './RichTextEditorBlock'
 import RichTextInput from '../inputs/RichTextInput'
 import Toolbar from '../btns/Toolbar'
 import ArticleTab from './ArticleTab'
+import UrlBox from './UrlBox'
 
 const PostHandlerContainer = ({ data }) => {
 
@@ -20,6 +21,12 @@ const PostHandlerContainer = ({ data }) => {
 
     const [articleTab, setArticleTab] = useState('')
     
+    const [SEO, setSEO] = useState({
+        url: '',
+        metaDesc: featuredTab.excerpt || '',    
+        tags: []
+    })
+
     // featured tab
 
     const handleThumbnail = (image) => {
@@ -41,6 +48,13 @@ const PostHandlerContainer = ({ data }) => {
         setArticleTab(contentHTML)
     }
 
+    // SEO tab
+
+    const handleSEOChange = (data, attr) => {
+
+        setSEO({ ...SEO, [attr]: data })
+
+    }
 
     useEffect(() => {
         console.log(featuredTab)
@@ -104,6 +118,16 @@ const PostHandlerContainer = ({ data }) => {
                         content={articleTab}
                         handleChangeContent={handleArticleChange}
                     /> */}
+                </div>
+
+                {/* SEO tab */}
+                <div
+                    className={`${currentTab === 'SEO' ? 'flex' : 'hidden'} flex-col gap-4 w-full h-full overflow-hidden p-5`}
+                >
+                    <UrlBox
+                        currentURL={SEO.url}
+                        handleUrlChange={handleSEOChange}
+                    />
                 </div>
 
             </div>

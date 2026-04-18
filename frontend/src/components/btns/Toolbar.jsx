@@ -139,7 +139,7 @@ const Toolbar = () => {
 
     return (
         <div 
-            className='flex flex-row items-center gap-0 w-full h-fit rounded rounded-t-none  border-primary/70 sticky bottom-0 left-0 z-50 bg-background scrollbar-hide overflow-x-scroll overflow-y-hidden min-h-10'
+            className='flex flex-row items-center gap-0 w-full h-fit rounded sticky top-0 left-0 z-50 scrollbar-hide overflow-x-scroll overflow-y-hidden min-h-10'
         >
 
             {/* style commands */}

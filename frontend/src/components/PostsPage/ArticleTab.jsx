@@ -50,8 +50,12 @@ const ArticleTab = ({ content, handleChangeContent }) => {
         <EditorContext value={providerValue}>
             <div
                 className='flex flex-col gap-2 w-full h-full relative'
-            >   
-                <Toolbar></Toolbar>
+            >
+                <div
+                    className='border-2 border-primary/70 rounded'
+                >
+                    <Toolbar/>
+                </div>
                 <div
                     className='p-2 overflow-y-scroll scrollbar-hide'
                 >

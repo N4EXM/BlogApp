@@ -1,9 +1,9 @@
 import React from 'react'
 
-const TextInput = ({ text, handleText, name, extraText, isRequired, placeholder = 'Enter some text...', type = 'text' }) => {
+const TextInput = ({ text, handleText, name, extraText, isRequired, placeholder = 'Enter some text...', type = 'text', children }) => {
     return (
         <div
-            className=' rounded bg-background flex flex-col gap-1 w-full'
+            className='rounded flex flex-col gap-1 w-full relative'
         >
             <h2
                 className='text-text'
@@ -22,6 +22,7 @@ const TextInput = ({ text, handleText, name, extraText, isRequired, placeholder 
             >
                 {extraText} 
             </h2>
+            {children}
         </div>
     )
 }
