@@ -19,7 +19,7 @@ const TextInput = ({ text, handleText, name, extraText, isRequired, placeholder 
                 readOnly={readOnly}
             />
             <h2
-                className='text-text/70 text-sm'
+                className='text-text/50 text-sm'
             >
                 {extraText} 
             </h2>

@@ -7,63 +7,60 @@ import RichTextInput from '../inputs/RichTextInput'
 import Toolbar from '../btns/Toolbar'
 import ArticleTab from './ArticleTab'
 import UrlBox from './UrlBox'
+import TagsBox from './TagsBox'
 
 const PostHandlerContainer = ({ data }) => {
 
     const tabs = ['Featured', 'Content', 'SEO']
     const [currentTab, setCurrentTab] = useState('Content')
-
-    const [featuredTab, setFeaturedTab] = useState({
+    const [post, setPost] = useState({ // where everything about the post is going to be stored
         title: '',
         thumbnail: null,
-        excerpt: ''        
-    })
-
-    const [articleTab, setArticleTab] = useState('')
-    
-    const [SEO, setSEO] = useState({
+        excerpt: '',
+        mainContent: '',
         url: '',
-        metaDesc: featuredTab.excerpt || '',    
-        tags: []
+        tags: [],
+        metaDesc: '',
     })
 
     // featured tab
 
     const handleThumbnail = (image) => {
-        if (featuredTab.thumbnail === image) {
-            setFeaturedTab({...featuredTab, thumbnail: null})
+        if (post.thumbnail === image) {
+            setPost({...post, thumbnail: null})
         }
         else {
-            setFeaturedTab({...featuredTab, thumbnail: image})
+            setPost({...post, thumbnail: image})
         }
     }
 
     const handleExcerpt = (contentHTML) => {
-        setFeaturedTab({ ...featuredTab, excerpt: contentHTML })
+        setPost({ ...post, excerpt: contentHTML })
     }
 
     // content tab
 
     const handleArticleChange = (contentHTML) => {
-        setArticleTab(contentHTML)
+        setPost({ ...post , mainContent: contentHTML })
     }
 
     // SEO tab
 
     const handleSEOChange = (data, attr) => {
 
-        setSEO({ ...SEO, [attr]: data })
+        setPost({ ...post, [attr]: data })
 
     }
 
     useEffect(() => {
-        console.log(featuredTab)
-    }, [featuredTab])
+        console.log(post)
+    }, [post])
 
 
     return (
         <form
             className='col-span-11 w-full row-span-16 rounded border-2 border-primary flex flex-col h-full'
+            // onClick={(e) => { e.preventDefault() }}
         >
 
             {/* tabs */}
@@ -94,15 +91,15 @@ const PostHandlerContainer = ({ data }) => {
                     className={`${currentTab === 'Featured' ? 'flex' : 'hidden'} p-5 flex-col gap-4 w-full overflow-y-scroll scrollbar-hide h-full`}
                 >
                     <TitleBlock
-                        title={featuredTab.title}
-                        setTitle={(e) => setFeaturedTab({...featuredTab, title: e.target.value})}
+                        title={post.title}
+                        setTitle={(e) => setPost({...post, title: e.target.value})}
                     />
                     <FeaturedImageBlock
                         handleThumbnail={handleThumbnail}
-                        image={featuredTab.thumbnail}
+                        image={post.thumbnail}
                     />
                     <RichTextEditorBlock
-                        content={featuredTab.excerpt}
+                        content={post.excerpt}
                         handleChangeContent={handleExcerpt}
                     />
                 </div>
@@ -112,7 +109,7 @@ const PostHandlerContainer = ({ data }) => {
                     className={`${currentTab === 'Content' ? 'flex' : 'hidden'} flex-col gap-4 w-full h-full overflow-hidden p-3`}
                 >
                     <ArticleTab
-                        content={articleTab}
+                        content={post.mainContent}
                         handleChangeContent={handleArticleChange}
                     />
                     {/* <RichTextInput
@@ -125,10 +122,14 @@ const PostHandlerContainer = ({ data }) => {
                 <div
                     className={`${currentTab === 'SEO' ? 'flex' : 'hidden'} flex-col gap-4 w-full h-full overflow-hidden p-5`}
                 >
+
                     <UrlBox
-                        titleStr={featuredTab.title}
+                        titleStr={post.title}
                         handleUrlChange={handleSEOChange}
                     />
+
+                    <TagsBox/>
+
                 </div>
 
             </div>
