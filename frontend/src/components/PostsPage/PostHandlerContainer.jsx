@@ -12,7 +12,7 @@ import TagsBox from './TagsBox'
 const PostHandlerContainer = ({ data }) => {
 
     const tabs = ['Featured', 'Content', 'SEO']
-    const [currentTab, setCurrentTab] = useState('Content')
+    const [currentTab, setCurrentTab] = useState('SEO')
     const [post, setPost] = useState({ // where everything about the post is going to be stored
         title: '',
         thumbnail: null,
@@ -51,6 +51,33 @@ const PostHandlerContainer = ({ data }) => {
         setPost({ ...post, [attr]: data })
 
     }
+
+    const handleTagChange = (selectedTag, availableTags) => {
+
+        if (post.tags.includes(selectedTag)) { // checks if the tag is already selected
+            
+            // filters out the tag
+            const filteredTags = post.tags.filter(tag => tag !== selectedTag)
+            // adds the tag
+            setPost({ ...post, tags: filteredTags })
+
+            return [...availableTags, selectedTag]
+
+        }
+        else { // adds the tag to the post tags
+
+            // add the tag to the post
+            setPost({ ...post, tags: [...post.tags, selectedTag] })
+
+            // gets rid of the tag for the available tag array
+            const filteredTags = availableTags.filter(tag => tag !== selectedTag)
+
+            return filteredTags
+
+        }
+
+    }
+
 
     useEffect(() => {
         console.log(post)
@@ -120,7 +147,7 @@ const PostHandlerContainer = ({ data }) => {
 
                 {/* SEO tab */}
                 <div
-                    className={`${currentTab === 'SEO' ? 'flex' : 'hidden'} flex-col gap-4 w-full h-full overflow-hidden p-5`}
+                    className={`${currentTab === 'SEO' ? 'flex' : 'hidden'} p-5 flex-col gap-4 w-full overflow-y-scroll scrollbar-hide h-full`}
                 >
 
                     <UrlBox
@@ -128,7 +155,10 @@ const PostHandlerContainer = ({ data }) => {
                         handleUrlChange={handleSEOChange}
                     />
 
-                    <TagsBox/>
+                    <TagsBox
+                        handleTagChange={handleTagChange}
+                        currentTags={post.tags}
+                    />
 
                 </div>
 
