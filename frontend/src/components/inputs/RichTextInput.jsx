@@ -19,31 +19,11 @@ import Document from '@tiptap/extension-document'
 const RichTextInput = ({ 
   content = ``, 
   handleChangeContent, 
-  allowedCommands = {
-    listItem: true,
-    codeBlock: true,
-    textAlign: true,
-    blockQuote: true,
-    link: true,
-    headings: true,
-    bold: true,
-    italic: true,
-    underline: true
-  }
+  hiddenComm
 }) => {
 
   const editorExtensions = [
-    StarterKit.configure({
-      heading: allowedCommands.headings,
-      codeBlock: allowedCommands.codeBlock,
-      bulletList: allowedCommands.listItem,
-      orderedList: allowedCommands.listItem,
-      Blockquote: allowedCommands.blockQuote,
-      link: allowedCommands.link,
-      bold: allowedCommands.bold,
-      italic: allowedCommands.italic,
-      underline: allowedCommands.underline
-    }),
+    StarterKit,
     Placeholder.configure({
       placeholder: 'Start typing...'
     }),
@@ -89,7 +69,7 @@ const RichTextInput = ({
   return (
     <EditorContext.Provider value={providerValue}>
       <div className="flex flex-col-reverse flex-1 gap-0 w-full h-full relative border-2 border-primary/70 rounded">
-        <Toolbar allowedCommands={allowedCommands}/>
+        <Toolbar hiddenComm={hiddenComm}/>
         <EditorContent editor={editor} className="flex-1 h-full"/>
       </div>
     </EditorContext.Provider>

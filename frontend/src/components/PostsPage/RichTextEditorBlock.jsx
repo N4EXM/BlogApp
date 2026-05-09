@@ -2,7 +2,7 @@ import React from 'react'
 import DropDownBox from './DropDownBox'
 import RichTextInput from '../inputs/RichTextInput'
 
-const RichTextEditorBlock = ({ content, handleChangeContent }) => {
+const RichTextEditorBlock = ({ content, handleChangeContent, hiddenComm }) => {
     return (
         <DropDownBox
             name={'Excerpt'}
@@ -19,6 +19,7 @@ const RichTextEditorBlock = ({ content, handleChangeContent }) => {
                 <RichTextInput
                     content={content}
                     handleChangeContent={handleChangeContent}
+                    hiddenComm={hiddenComm}
                 />
                 <h3
                     className='text-sm text-text/50'

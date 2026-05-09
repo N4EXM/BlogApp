@@ -31,9 +31,9 @@ const TagsBox = ({ handleTagChange, currentTags }) => {
 
     }
 
-    useEffect(() => {
-        console.log('fetched tags: ', tags)
-    })
+    // useEffect(() => {
+    //     console.log('fetched tags: ', tags)
+    // })
 
     return (
         <DropDownBox
@@ -83,16 +83,36 @@ const TagsBox = ({ handleTagChange, currentTags }) => {
                                     Selected tags: 
                                 </h4>
                                 <div
-                                    className='flex flex-wrap gap-2 w-full h-full p-3 bg-text/10 rounded'
+                                    className='flex flex-wrap gap-2 w-full h-full p-3 bg-text/5 rounded'
                                 >   
                                     {
-                                        currentTags.map((tag) => (
-                                            <TagBtn
-                                                key={tag}
-                                                handleSelectTag={() => handleTags(tag)}
-                                                name={tag}
-                                            />
-                                        ))
+                                        currentTags.length <= 0
+                                        ?   <div
+                                                className='flex items-center justify-center w-full h-full gap-2 flex-col'
+                                            >
+                                                <svg className='text-primary p-2 rounded-full bg-accent' xmlns="http://www.w3.org/2000/svg" width={48} height={48} fill={"currentColor"} viewBox={"0 0 24 24"}>{/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}<path d="M20 5H8.47c-.59 0-1.15.26-1.54.72l-4.7 5.64c-.31.37-.31.91 0 1.28l4.7 5.64c.38.46.94.72 1.54.72H20c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2"></path></svg>
+                                                <div
+                                                    className='flex flex-col gap-1 w-fit h-fit items-center justify-center'
+                                                >
+                                                    <h2
+                                                        className='text-text'
+                                                    >
+                                                        No tags selected
+                                                    </h2>
+                                                    <h3
+                                                        className='text-center text-sm text-text/80 w-56'
+                                                    >
+                                                        Select some tags to improve the SEO of your post
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        :   currentTags.map((tag) => (
+                                                <TagBtn
+                                                    key={tag}
+                                                    handleSelectTag={() => handleTags(tag)}
+                                                    name={tag}
+                                                />
+                                            ))
                                     }
                                 </div>
                             </div>
@@ -104,7 +124,7 @@ const TagsBox = ({ handleTagChange, currentTags }) => {
                             >
 
                                 <TextInput
-                                    name={'Tags'}
+                                    // name={'Tags'}
                                     placeholder='Search tags...'
                                     text={searchInput}
                                     handleText={(e) => setSearchInput(e.target.value)}
@@ -116,7 +136,7 @@ const TagsBox = ({ handleTagChange, currentTags }) => {
                                     Available tags:
                                 </h4>
                                 <div
-                                    className='flex flex-wrap gap-2 w-full h-full p-3 bg-text/10 rounded'
+                                    className='flex flex-wrap gap-2 w-full h-full p-3 bg-text/5 rounded'
                                 >
                                     {
                                         tags.map((tag) => (

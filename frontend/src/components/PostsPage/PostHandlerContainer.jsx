@@ -12,7 +12,7 @@ import TagsBox from './TagsBox'
 const PostHandlerContainer = ({ data }) => {
 
     const tabs = ['Featured', 'Content', 'SEO']
-    const [currentTab, setCurrentTab] = useState('SEO')
+    const [currentTab, setCurrentTab] = useState('Featured')
     const [post, setPost] = useState({ // where everything about the post is going to be stored
         title: '',
         thumbnail: null,
@@ -78,11 +78,9 @@ const PostHandlerContainer = ({ data }) => {
 
     }
 
-
-    useEffect(() => {
-        console.log(post)
-    }, [post])
-
+    // useEffect(() => {
+    //     console.log(post)
+    // }, [post])
 
     return (
         <form
@@ -128,6 +126,7 @@ const PostHandlerContainer = ({ data }) => {
                     <RichTextEditorBlock
                         content={post.excerpt}
                         handleChangeContent={handleExcerpt}
+                        hiddenComm={['headings', 'align', 'code', 'lists']}
                     />
                 </div>
 

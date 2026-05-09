@@ -13,7 +13,7 @@ const ArticleTab = ({ content, handleChangeContent }) => {
         extensions: [
         StarterKit,
         Placeholder.configure({
-            placeholder: 'Start typing your blog/article'
+            placeholder: 'Start typing your blog/article...'
         }),
         TextAlign.configure({
             types: ['heading', 'paragraph']

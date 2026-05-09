@@ -35,7 +35,7 @@ const Sidebar = () => {
 
     return (
         <div
-            className='col-span-4 row-span-full bg-primary h-full text-background p-8 py-6 gap-32 flex flex-col '
+            className='col-span-4 row-span-full bg-slate-900 h-full text-background p-8 py-6 gap-32 flex flex-col '
         >
             
             {/* logo and name */}
