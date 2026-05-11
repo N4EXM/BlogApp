@@ -109,7 +109,7 @@ const PostHandlerContainer = ({  }) => {
                     </button>
 
                     <div
-                        className={`${isCategoryDropdownActive ? 'flex' : 'hidden'} flex flex-col w-full h-40 bg-background shadow shadow-text/20 rounded overflow-y-scroll text-sm text-text scrollbar-hide`}
+                        className={`${isCategoryDropdownActive ? 'flex' : 'hidden'} flex flex-col w-full h-40 bg-background shadow shadow-text/20 rounded overflow-y-scroll text-sm text-text scrollbar-hide absolute top-12 left-0 z-10`}
                     >
                         {
                             categories.map((cat, index) => (

@@ -5,7 +5,7 @@ const SemiCircleProgress = ({
     currentAmount,
     size = 200,
     strokeWidth = 12,
-    color = '#3b82f6',
+    color = '#0a5299',
     backgroundColor = '#e5e7eb',
     children,
     }) => {
@@ -75,7 +75,7 @@ const SemiCircleProgress = ({
             >
                 {children !== undefined ? children : (
                 <>
-                    <span className="text-2xl font-bold w-full" style={{ color }}>
+                    <span className="text-2xl font-bold w-full text-primary">
                     {currentAmount}GB
                     </span>
                     <span className="text-xs text-gray-500">Total storage {totalAmount}GB</span>
