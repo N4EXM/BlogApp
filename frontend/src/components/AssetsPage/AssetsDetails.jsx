@@ -3,9 +3,7 @@ import SemiCircleProgress from '../AssetsPage/SemiCircleProgress'
 import SmallFileCard from './SmallFileCard'
 import FileUploadInput from '../inputs/FileUploadInput'
 
-const AssetsDetails = () => {
-
-    const [files, setFiles] = useState([])
+const AssetsDetails = ({ files, handleFileUpload }) => {
 
     const [recentFiles, setRecentFiles] = useState([
         {
@@ -27,20 +25,7 @@ const AssetsDetails = () => {
             size: 320
         },
 
-    ]) // gets the recent assets based on their timestamps
-
-    const handleFileUpload = (file) => {
-        if (file) {
-            setFiles([
-                ...files,
-                file
-            ])
-        }
-    }
-
-    useEffect(() => {
-        console.log(files)
-    }, [files ])
+    ]) // gets the recent assets based on their timestamps    
 
     return (
         <div

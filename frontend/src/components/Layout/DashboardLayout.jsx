@@ -11,7 +11,7 @@ const DashboardLayout = ({ children }) => {
             <Navbar/>
 
             <div
-                className='w-full h-full p-5 col-span-12 row-span-14 row-start-3 grid grid-cols-16 grid-rows-16'
+                className='w-full h-full p-5 col-span-12 row-span-14 row-start-3 grid grid-cols-16 grid-rows-16 gap-4'
             >
                 {children}
             </div>

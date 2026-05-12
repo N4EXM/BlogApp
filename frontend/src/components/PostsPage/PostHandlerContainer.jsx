@@ -24,7 +24,7 @@ const PostHandlerContainer = ({  }) => {
 
     return (
         <div
-            className='p-2 rounded w-full h-full ml-3 row-span-16 col-span-5 flex flex-col gap-4'
+            className='p-2 rounded w-full h-full row-span-16 col-span-5 flex flex-col gap-4'
         >
 
             {/* author */}

@@ -39,7 +39,7 @@ const FileUploadInput = ({ onFileUpload }) => {
       className="w-full h-fit flex"
     >
       <div
-        className="flex flex-col gap-2 w-full h-full min-h-32 rounded bg-background border-2 border-dashed border-text/50 relative items-center justify-center cursor-pointer hover:border-primary hover:bg-text/5 duration-200"
+        className={`flex flex-col gap-2 w-full h-full min-h-32 rounded bg-background border-2 border-dashed border-text/50 relative items-center justify-center cursor-pointer hover:border-primary hover:bg-text/5 duration-200 ${isDragging && 'bg-text/5 border-primary'}`}
         onClick={triggerFileInput}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
