@@ -6,6 +6,7 @@ import UserAnalytics from './pages/dashboardPages/UserAnalytics'
 import UserPosts from './pages/dashboardPages/UserPosts'
 import UserNewPost from './pages/dashboardPages/UserNewPost'
 import UserAssets from './pages/dashboardPages/UserAssets'
+import CommentsPage from './pages/dashboardPages/CommentsPage'
 
 
 const App = () => {
@@ -39,6 +40,13 @@ const App = () => {
           path='/Assets'
           element={
             <UserAssets/>
+          }
+        />
+
+        <Route
+          path='/Comments'
+          element={
+            <CommentsPage/>
           }
         />
 

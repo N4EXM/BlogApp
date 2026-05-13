@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import ImageCard from './ImageCard'
 
-const FileViewer = ({ files }) => {
+const FileViewer = ({ files = [] }) => {
     
-    const [filteredFiles, setFilteredFiles] = useState(files ?? []) // 
     const [activeFilter, setActiveFilter] = useState('Latest')
     const [isDropdownActive, setIsDropdownActive] = useState(false)
 
@@ -26,18 +25,15 @@ const FileViewer = ({ files }) => {
         }
     ]
 
-    const handleFilterChange = () => {
-
-    }
-
+    
     return (
         <div
-            className='flex flex-col gap-3 w-full h-full col-span-12 row-span-full'
+            className='flex flex-col gap-2 w-full h-full col-span-12 row-span-full '
         >
 
             {/* filters */}
             <div
-                className='flex flex-row items-center justify-between gap-2 w-full h-fit'
+                className='flex flex-row items-end justify-between gap-2 w-full h-fit'
             >
                 <h2
                     className='text-text text-lg font-medium'
@@ -49,10 +45,10 @@ const FileViewer = ({ files }) => {
                 >
                     {/* filter btn */}
                     <button
-                        className='flex flex-row items-center gap-2 bg-background shadow shadow-text/50 hover:bg-text/10 duration-200 rounded px-3 p-1.5 text-text'
+                        className='flex flex-row items-center gap-1 w-fit h-fit p-1.5 duration-200 px-3 bg-primary hover:bg-accent hover:text-primary text-background rounded'
                         onClick={() => setIsDropdownActive(!isDropdownActive)}
                     >
-                        <svg  xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill={"currentColor"} viewBox={"0 0 24 24"}>{/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}<path d="M20 2H4c-.55 0-1 .45-1 1v2c0 .24.09.48.25.66L10 13.38V21c0 .4.24.77.62.92a.995.995 0 0 0 1.09-.21l2-2A1 1 0 0 0 14 19v-5.62l6.75-7.72c.16-.18.25-.42.25-.66V3c0-.55-.45-1-1-1"></path></svg>
+                        <svg  xmlns="http://www.w3.org/2000/svg" width={18} height={18} fill={"currentColor"} viewBox={"0 0 24 24"}>{/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}<path d="M20 2H4c-.55 0-1 .45-1 1v2c0 .24.09.48.25.66L10 13.38V21c0 .4.24.77.62.92a.995.995 0 0 0 1.09-.21l2-2A1 1 0 0 0 14 19v-5.62l6.75-7.72c.16-.18.25-.42.25-.66V3c0-.55-.45-1-1-1"></path></svg>
                         Filter 
                     </button>
                     <div
@@ -79,34 +75,20 @@ const FileViewer = ({ files }) => {
                 </div>
             </div>
 
-            <span className='w-full h-0.5 bg-primary'></span>
+            <span className='w-full min-h-0.5 bg-text/20 rounded'></span>
 
             {/* image files */}
             <div
-                className='grid grid-cols-3 w-full h-full'
+                className='w-full h-full flex'
             >
-                {/* {
-                    filteredFiles.map((file) => {
-
-                        const imageUrl = URL.createObjectURL(file)
-
-                        return (
-                            <ImageCard
-                                imageUrl={imageUrl}
-                                name={file.name}
-                            />
-                        )
-
-                    })
-                } */}
                 {
-                    filteredFiles.length <= 0
+                    files.length <= 0
                     ?   <div // empty state ui
-                            className='w-full h-full flex items-center justify-center gap-2 col-span-full flex-col'
+                            className='w-full h-full flex items-center justify-center gap-4 col-span-full flex-col'
                         >
                             <svg className='p-3 rounded-full bg-text/10 text-text/70' xmlns="http://www.w3.org/2000/svg" width={80} height={80} fill={"currentColor"} viewBox={"0 0 24 24"}>{/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}<path d="M20 4h-8.59L10 2.59C9.63 2.22 9.11 2 8.59 2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2M4 18v-7h16v7z"></path></svg>
                             <div
-                                className='flex flex-col gap-1 w-fit h-fit text-center'
+                                className='flex flex-col gap-0 w-fit h-fit text-center'
                             >
                                 <h2
                                     className='text-lg text-primary font-medium'
@@ -120,16 +102,20 @@ const FileViewer = ({ files }) => {
                                 </h3>
                             </div>
                         </div>
-                    :   <div>
+                    :   <div
+                            className='grid grid-cols-3 w-full max-h-95/100 gap-2 overflow-y-scroll scrollbar-hide p-1 pb-10'
+                        >
                             {
-                                filteredFiles.map((file) => {
+                                files.map((file) => {
 
                                     const imageUrl = URL.createObjectURL(file)
 
                                     return (
                                         <ImageCard
+                                            key={file.name}
                                             imageUrl={imageUrl}
                                             name={file.name}
+                                            type={file.type}
                                         />
                                     )
 
@@ -137,6 +123,12 @@ const FileViewer = ({ files }) => {
                             }
                         </div>  
                 }
+            </div>
+
+            <div
+                className='w-full h-fit p-2'
+            >
+
             </div>
 
         </div>

@@ -5,7 +5,8 @@ import FileViewer from '../../components/AssetsPage/FileViewer'
 
 const UserAssets = () => {
 
-    const [files, setFiles] = useState([])
+    const [files, setFiles] = useState([]) // the data from backend
+    const [filteredFiles, setFilteredFiles] = useState(files) 
 
     // allows users to upload files
     const handleFileUpload = (file) => {
@@ -15,6 +16,11 @@ const UserAssets = () => {
                     file
                 ])
             }
+    }
+
+    // filters the file based on the option
+    const handleFilteringFiles = (option) => {
+
     }
 
     return (
@@ -28,7 +34,8 @@ const UserAssets = () => {
 
             {/* view all the files and filter them */}
             <FileViewer
-                
+                handleFilteringFiles={handleFilteringFiles}
+                files={files}
             />
 
 
