@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SidebarBtn = ({icon, name, ftn, isSelected}) => {
+const SidebarBtn = ({icon, name, ftn, isSelected , className = `rounded flex flex-row items-center gap-4 p-1 w-fit h-fit font-medium hover:bg-accent cursor-pointer duration-200 ${isSelected ? 'bg-secondary/50 text-primary' : 'bg-background'}`}) => {
     return (
         <Link
-            className={`rounded flex flex-row items-center gap-4 px-3 p-2 w-full h-fit font-medium hover:bg-accent duration-200 ${isSelected ? 'bg-primary text-background' : 'bg-slate-900'}`}
+            className={className}
             to={ftn}
         >
             {icon}

@@ -1,7 +1,7 @@
 import React from 'react'
 import DashboardLayout from '../../components/Layout/DashboardLayout'
-import PostContentContainer from '../../components/PostsPage/PostContentContainer'
-import PostHandlerContainer from '../../components/PostsPage/PostHandlerContainer'
+import PostContentContainer from '../../components/NewPostsPage/PostContentContainer'
+import PostHandlerContainer from '../../components/NewPostsPage/PostHandlerContainer'
 
 const UserNewPost = ({  }) => {
     return (

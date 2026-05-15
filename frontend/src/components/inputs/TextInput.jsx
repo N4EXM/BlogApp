@@ -1,6 +1,17 @@
 import React from 'react'
 
-const TextInput = ({ text, handleText, name, extraText, isRequired, placeholder = 'Enter some text...', type = 'text', children, readOnly = false }) => {
+const TextInput = ({ 
+    text, 
+    handleText, 
+    name, 
+    extraText, 
+    isRequired, 
+    placeholder = 'Enter some text...', 
+    type = 'text',
+    readOnly = false, 
+    children,
+    className = 'placeholder:text-text/50 outline-none w-full p-2 border-2 border-primary rounded ' 
+}) => {
     return (
         <div
             className='rounded flex flex-col gap-1 w-full relative'
@@ -12,7 +23,7 @@ const TextInput = ({ text, handleText, name, extraText, isRequired, placeholder 
             </h2>
             <input 
                 type={type} 
-                className='placeholder:text-text/50 outline-none w-full p-2 border-2 border-primary rounded '
+                className={className}
                 onChange={handleText}
                 value={text}
                 placeholder={placeholder}

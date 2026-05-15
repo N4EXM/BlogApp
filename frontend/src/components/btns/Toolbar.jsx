@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useCurrentEditor, } from '@tiptap/react';
-import LinkModal from '../PostsPage/LinkModal';
+// import LinkModal from '../PostsPage/LinkModal';
 import { isAllowedUri } from '@tiptap/extension-link';
 
 const Toolbar = ({ hiddenComm = [] }) => {
