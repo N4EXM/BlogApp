@@ -9,19 +9,11 @@ import ArticleTab from './ArticleTab'
 import UrlBox from './UrlBox'
 import TagsBox from './TagsBox'
 
-const PostContentContainer = ({ data }) => {
+const PostContentContainer = ({ selectedPost = {} }) => {
 
     const tabs = ['Featured', 'Content', 'SEO']
     const [currentTab, setCurrentTab] = useState('Featured')
-    const [post, setPost] = useState({ // where everything about the post is going to be stored
-        title: '',
-        thumbnail: null,
-        excerpt: '',
-        mainContent: '',
-        url: '',
-        tags: [],
-        metaDesc: '',
-    })
+    const [post, setPost] = useState(selectedPost)
 
     // featured tab
 
@@ -78,25 +70,25 @@ const PostContentContainer = ({ data }) => {
 
     }
 
-    // useEffect(() => {
-    //     console.log(post)
-    // }, [post])
+    useEffect(() => {
+        setPost(selectedPost)
+    }, [selectedPost])
 
     return (
         <form
-            className='col-span-11 w-full row-span-16 rounded border-2 border-primary bg-background flex flex-col h-full shadow shadow-text/40'
+            className='col-span-10 w-full row-span-12 rounded bg-background flex flex-col h-full shadow shadow-text/40 mt-1'
             // onClick={(e) => { e.preventDefault() }}
         >
 
             {/* tabs */}
             <div
-                className='bg-secondary w-full rounded-t h-fit flex flex-row'
+                className='bg-secondary/70 w-full rounded-t h-fit flex flex-row'
             >
                 {
                     tabs.map((tab, index) => (
                         <button 
                             key={tab}
-                            className={` ${index === 0 && 'rounded-tl'} ${currentTab === tab ? 'bg-background text-primary' : 'bg-secondary text-text'} cursor-pointer p-2 px-3 text-sm font-medium`}
+                            className={` ${index === 0 && 'rounded-tl'} ${currentTab === tab ? 'bg-background text-primary' : 'text-text'} cursor-pointer p-2 px-3 text-sm font-medium`}
                             onClick={() => setCurrentTab(tab)}
                             type='button'
                         >

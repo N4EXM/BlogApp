@@ -10,7 +10,7 @@ const DashboardLayout = ({ children }) => {
             <Sidebar/>
 
             <div
-                className='w-full h-full flex flex-col gap-2'
+                className='w-full h-full flex flex-col gap-0'
             >
                 <Navbar/>
                 <div

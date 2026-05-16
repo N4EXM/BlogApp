@@ -16,7 +16,9 @@ const Sidebar = () => {
         // },
         {
             name: 'Posts',
-            icon: <svg  xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill={"currentColor"} viewBox={"0 0 24 24"}>{/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}<path d="M4 12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2zm2-8h12v8H6zM4 16h16v2H4zm0 4h16v2H4z"></path></svg>,
+            icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
+                    <path fill="currentColor" d="M184 72H40a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h144a16 16 0 0 0 16-16V88a16 16 0 0 0-16-16m0 128H40V88h144zm48-144v120a8 8 0 0 1-16 0V56H64a8 8 0 0 1 0-16h152a16 16 0 0 1 16 16"></path>
+                </svg>,
             path: '/Posts'
         },
         // {
@@ -40,9 +42,14 @@ const Sidebar = () => {
             
             {/* logo and name */}
             <SidebarBtn
-                icon={<svg  xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill={"currentColor"} viewBox={"0 0 24 24"}>{/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}<path d="m21.45 11.11-18-9c-.31-.15-.68-.14-.97.04s-.47.5-.47.85v18a1 1 0 0 0 1 1c.15 0 .31-.04.45-.11l18-9c.34-.17.55-.52.55-.89s-.21-.73-.55-.89ZM4 4.62 16.76 11H4zM4 13h12.76L4 19.38z"></path></svg>}
+                icon={
+                    <svg xmlns="http://www.w3.org/2000/svg" width={28} height={28} viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m14 10l-3 3m9.288-9.969a.535.535 0 0 1 .68.681l-5.924 16.93a.535.535 0 0 1-.994.04l-3.219-7.242a.54.54 0 0 0-.271-.271l-7.242-3.22a.535.535 0 0 1 .04-.993z"></path>
+                    </svg>
+                }
                 className='p-2 rounded text-primary cursor-pointer'
                 ftn={'/'}
+                className={'p-1 text-primary cursor-pointer'}
             />
             
 
@@ -71,8 +78,9 @@ const Sidebar = () => {
             >
                 {/* user btn */}
                 <SidebarBtn
-                    icon={<svg  xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill={"currentColor"} viewBox={"0 0 24 24"}>{/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}<path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5m0-8c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3M4 22h16c.55 0 1-.45 1-1v-1c0-3.86-3.14-7-7-7h-4c-3.86 0-7 3.14-7 7v1c0 .55.45 1 1 1m6-7h4c2.76 0 5 2.24 5 5H5c0-2.76 2.24-5 5-5"></path></svg>}
-                    
+                    icon={<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 256 256">
+                        <path fill="currentColor" d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0c-27.39 8.94-50.86 27.82-66.09 54.16a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8M72 96a56 56 0 1 1 56 56a56.06 56.06 0 0 1-56-56"></path>
+                    </svg>}
                 />
 
                 <span className='w-full h-px bg-text/20'></span>
@@ -81,7 +89,10 @@ const Sidebar = () => {
                 <button
                     className='text-rose-700 p-1 rounded hover:bg-rose-100 hover:text-rose-900 duration-200 active:bg-rose-200'
                 >
-                    <svg  xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill={"currentColor"} viewBox={"0 0 24 24"}>{/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}<path d="M9 13h7v-2H9V7l-6 5 6 5z"></path><path d="M19 3h-7v2h7v14h-7v2h7c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M20.968 18.448a2.577 2.577 0 0 1-2.73 2.5c-2.153.012-4.306 0-6.459 0a.5.5 0 0 1 0-1c2.2 0 4.4.032 6.6 0c1.107-.016 1.589-.848 1.589-1.838V5.647A1.55 1.55 0 0 0 19 4.175a3 3 0 0 0-1.061-.095h-6.16a.5.5 0 0 1 0-1c2.224 0 4.465-.085 6.687 0a2.567 2.567 0 0 1 2.5 2.67Z" strokeWidth={0.3} stroke="currentColor"></path>
+                        <path fill="currentColor" d="M3.176 11.663a.46.46 0 0 0-.138.311q.002.021-.006.043c-.008.022 0 .027.006.041a.46.46 0 0 0 .138.312l3.669 3.669a.5.5 0 0 0 .707-.707l-2.815-2.816h10.742a.5.5 0 0 0 0-1H4.737L7.552 8.7a.5.5 0 0 0-.707-.707Z" strokeWidth={0.3} stroke="currentColor"></path>
+                    </svg>
                 </button>
 
             </div>

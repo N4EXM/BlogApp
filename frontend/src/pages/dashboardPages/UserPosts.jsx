@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DashboardLayout from '../../components/Layout/DashboardLayout'
 import PostsViewer from '../../components/PostPage/PostsViewer'
 import AnalyticsCard from '../../components/PostPage/AnalyticsCard'
+import PostCreator from '../../components/PostPage/PostCreator'
 
 const UserPosts = () => {
 
@@ -13,10 +14,63 @@ const UserPosts = () => {
             excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
             mainContent: `<p>hi this is a post</p>`,
             url: 'Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit.',
-            tags: ['', '', ''],
-            metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!'
-        }
+            tags: [],
+            metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
+            category: 'Tech',
+            date: '22/01/26'
+        },
+        {
+            id: 1,
+            title: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit1, amet consectetur adipisicing elit.',
+            thumbnail: 'https://picsum.photos/seed/3/960/544',
+            excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
+            mainContent: `<p>hi this is a post</p>`,
+            url: 'Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elite.',
+            tags: [],
+            metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
+            category: 'Nature',
+            date: '22/01/26'
+        },
+        {
+            id: 2,
+            title: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit2, amet consectetur adipisicing elit.',
+            thumbnail: 'https://picsum.photos/seed/4/960/544',
+            excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
+            mainContent: `<p>hi this is a post</p>`,
+            url: 'Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elite.',
+            tags: [],
+            metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
+            category: 'Food',
+            date: '22/01/26'
+        },
     ])
+    const [postView, setPostView] = useState(0) // 0: empty state, 1: new post, 2: editing post not related to the component PostsView
+    const [selectedPost, setSelectedPost] = useState(
+    {
+        id: null,
+        title: '',
+        thumbnail: null,
+        excerpt: '',
+        mainContent: ``,
+        url: '',
+        tags: [],
+        metaDesc: '',
+        category: '',
+        date: ''
+    }
+    // {
+    //         id: 0,
+    //         title: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
+    //         thumbnail: 'https://picsum.photos/seed/2/960/544',
+    //         excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
+    //         mainContent: `<p>hi this is a post</p>`,
+    //         url: 'Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit.',
+    //         tags: [],
+    //         metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
+    //         category: 'Tech',
+    //         date: '22/01/26'
+    //     },
+    )
 
     const [analytics, setAnalytics] = useState([
         {
@@ -37,12 +91,34 @@ const UserPosts = () => {
         },
     ])
     
+    const handlePostSelect = (post) => {
+        setSelectedPost({...post})
+        setPostView(2)
+    }
+
+    const handleStartNewPost = () => {
+        setSelectedPost({
+            id: null,
+            title: '',
+            thumbnail: null,
+            excerpt: '',
+            mainContent: ``,
+            url: '',
+            tags: [],
+            metaDesc: '',
+            category: '',
+            date: ''
+        })
+        setPostView(1)
+    }
+
     return (
         <DashboardLayout>
             
             {
                 analytics.map((analytic) => (
                     <AnalyticsCard
+                        key={analytic.name}
                         icon={analytic.icon}
                         name={analytic.name}
                     />
@@ -50,8 +126,14 @@ const UserPosts = () => {
             }
             <PostsViewer
                 posts={posts}
+                handlePostSelect={handlePostSelect}
+                handleStartNewPost={() => handleStartNewPost()}
             />
 
+            <PostCreator
+                postView={postView}
+                selectedPost={selectedPost}
+            />
 
         </DashboardLayout>   
     )

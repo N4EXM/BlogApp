@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-const ImageInput = ({ handleImage, image, extraText }) => {
+const ImageInput = ({ handleImage, image = null, extraText }) => {
     
     const fileInputRef = useRef(null)
 
@@ -18,6 +18,29 @@ const ImageInput = ({ handleImage, image, extraText }) => {
         handleImage(image)
     }
 
+    function checkImageTypeIsBlob(source) {
+        // Check if it's a Blob
+        if (source instanceof Blob) {
+            // console.log('This is a Blob');
+            return true;
+        }
+        
+        // Check if it's a File (File extends Blob)
+        // if (source instanceof File) {
+        //     console.log('This is a File (also a Blob)');
+        //     return 'file';
+        // }
+        
+        // Check if it's a string (URL)
+        if (typeof source === 'string') {
+            // console.log('This is a string/URL');
+            return false;
+        }
+        
+        return 'unknown';
+    }
+
+
     return (
         <div
             className='flex flex-col w-full h-full bg-background rounded relative p-4 gap-2'
@@ -27,7 +50,7 @@ const ImageInput = ({ handleImage, image, extraText }) => {
                 className='flex relative aspect-video h-72 bg-background border-text/50 border-dashed border-2 rounded w-full '
             >
                 {
-                    image === null
+                    image === null 
                     ?   <>
                             {/* the actual image uploaded */}
                             <input 
@@ -49,20 +72,20 @@ const ImageInput = ({ handleImage, image, extraText }) => {
                         </>
                     :   
                         <>
-                            <div
+                            {/* <div
                                 className={`${image !== null ? 'flex' : 'hidden'} absolute bottom-3 left-3 w-fit h-fit p-1.5 px-2 bg-background/40 rounded z-10`}
                             >
-                                {/* name of the file */}
+                                name of the file
                                 <h3
                                     className='text-sm text-background '
                                 >
                                     {image?.name}
                                 </h3>
-                            </div>
+                            </div> */}
 
                             {/* the image preview */}
                             <img 
-                                src={URL.createObjectURL(image)} 
+                                src={checkImageTypeIsBlob(image) ? URL.createObjectURL(image) : image} 
                                 alt="" 
                                 className={`w-full h-full ${image !== null ? 'flex' : 'hidden'}`}
                             />

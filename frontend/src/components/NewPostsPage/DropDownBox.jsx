@@ -7,7 +7,7 @@ const DropDownBox = ({ children, name = 'field', isRequired }) => {
 
     return (
         <div
-            className={`${isDropDownActive ? 'h-fit' : 'h-fit'} bg-accent rounded p-3 w-full duration-200 px-4 flex flex-col gap-4 shadow shadow-text/40`}
+            className={`${isDropDownActive ? 'h-fit' : 'h-fit'} bg-secondary/70 rounded p-3 w-full duration-200 px-4 flex flex-col gap-4 shadow shadow-text/40`}
         >
             <div
                 className='flex flex-row w-full h-fit items-center justify-between'

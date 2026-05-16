@@ -4,7 +4,11 @@ import DropdownMenu from '../inputs/DropdownMenu'
 import RadioBtn from '../btns/RadioBtn'
 import PostCard from './PostCard'
 
-const PostsViewer = ({ posts }) => {
+const PostsViewer = ({ 
+    posts, 
+    handlePostSelect, 
+    handleStartNewPost
+}) => {
 
     const [activeFilter, setActiveFilter] = useState('Recent')
     const [isDropdownActive, setIsDropdownActive] = useState(false)
@@ -24,7 +28,7 @@ const PostsViewer = ({ posts }) => {
 
     return (
         <div
-            className='flex flex-col gap-2 w-full h-full col-span-6 row-span-13 '
+            className='flex flex-col gap-2 w-full h-full col-span-6 row-span-12 '
         >
 
             {/* search and filter */}
@@ -33,7 +37,7 @@ const PostsViewer = ({ posts }) => {
             >
 
                 <TextInput
-                    className={'bg-background border-2 border-text/20 p-2 rounded outline-none text-text'}
+                    className={'bg-background shadow shadow-text/20 p-2 rounded outline-none text-text'}
                     placeholder='Search a post...'
                     type='input'
                     text={searchQuery}
@@ -59,15 +63,25 @@ const PostsViewer = ({ posts }) => {
                     }                    
                 </DropdownMenu>
 
+                <button
+                    className='p-2 rounded bg-secondary/50 text-primary hover:bg-primary hover:text-background duration-200 cursor-pointer shadow shadow-text/30'
+                    title='New post'
+                    onClick={handleStartNewPost}
+                >
+                    <svg  xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill={"currentColor"} viewBox={"0 0 24 24"}>{/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}<path d="M3 13h8v8h2v-8h8v-2h-8V3h-2v8H3z"></path></svg>
+                </button>
+
             </div>
 
             <div
-                className='flex flex-col gap-2 w-full h-full p-0.5'
+                className='flex flex-col gap-2 w-full h-full p-0.5 overflow-y-scroll pb-20 scrollbar-hide'
             >
                 {
                     posts.map((post) => (
-                        <PostCard
+                        <PostCard   
+                            key={post.id}
                             post={post} 
+                            ftn={() => handlePostSelect(post)}
                         />
                     ))
                 }

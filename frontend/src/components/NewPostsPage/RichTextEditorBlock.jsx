@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import DropDownBox from './DropDownBox'
 import RichTextInput from '../inputs/RichTextInput'
 
 const RichTextEditorBlock = ({ content, handleChangeContent, hiddenComm }) => {
+
     return (
         <DropDownBox
             name={'Excerpt'}
