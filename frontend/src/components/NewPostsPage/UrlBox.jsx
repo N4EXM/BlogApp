@@ -43,7 +43,7 @@ const UrlBox = ({ titleStr, handleUrlChange }) => {
                     placeholder={'Enter a title first...'}
                 >
                     <button
-                        className='p-2 top-7.75 right-1 text-text/30 absolute cursor-pointer'
+                        className='p-2 top-7.75 right-1 text-text/30 absolute bg-background cursor-pointer'
                         onClick={() => slugify(titleStr)}
                         type='button'
                     >

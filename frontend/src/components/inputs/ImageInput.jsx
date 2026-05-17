@@ -47,7 +47,7 @@ const ImageInput = ({ handleImage, image = null, extraText }) => {
         >
 
             <div
-                className='flex relative aspect-video h-72 bg-background border-text/50 border-dashed border-2 rounded w-full '
+                className='flex relative bg-background border-text/50 border-dashed border-2 rounded w-full min-h-72'
             >
                 {
                     image === null 
@@ -87,7 +87,7 @@ const ImageInput = ({ handleImage, image = null, extraText }) => {
                             <img 
                                 src={checkImageTypeIsBlob(image) ? URL.createObjectURL(image) : image} 
                                 alt="" 
-                                className={`w-full h-full ${image !== null ? 'flex' : 'hidden'}`}
+                                className={`w-full h-full ${image !== null ? 'flex' : 'hidden aspect-video'}`}
                             />
                             <button
                                 className='absolute top-3 right-3 bg-text text-background hover:bg-rose-500 duration-200 p-1 rounded-full'

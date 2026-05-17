@@ -22,6 +22,8 @@ const RichTextInput = ({
   hiddenComm
 }) => {
 
+  const [newContent, setNewContent] = useState(content) // used to make sure the content updates
+
   const editorExtensions = [
     StarterKit,
     Placeholder.configure({
@@ -49,7 +51,7 @@ const RichTextInput = ({
 
   const editor = useEditor({
     extensions: editorExtensions,
-    content: content,
+    content: newContent,
     editorProps: {
       attributes: {
         // Add your Tailwind classes here
@@ -65,6 +67,14 @@ const RichTextInput = ({
   const providerValue = useMemo(() => ({ editor }), [editor])
 
   if (!editor) return null;
+
+  useEffect(() => {
+    if (!editor) return
+
+    // Always update, even with empty content
+    const newContent = content || '' 
+    editor.commands.setContent(newContent)
+  }, [editor, content])  
 
   return (
     <EditorContext.Provider value={providerValue}>

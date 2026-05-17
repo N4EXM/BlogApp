@@ -7,7 +7,6 @@ import PostCard from './PostCard'
 const PostsViewer = ({ 
     posts, 
     handlePostSelect, 
-    handleStartNewPost
 }) => {
 
     const [activeFilter, setActiveFilter] = useState('Recent')
@@ -66,7 +65,7 @@ const PostsViewer = ({
                 <button
                     className='p-2 rounded bg-secondary/50 text-primary hover:bg-primary hover:text-background duration-200 cursor-pointer shadow shadow-text/30'
                     title='New post'
-                    onClick={handleStartNewPost}
+                    onClick={() => handlePostSelect(null, true)}
                 >
                     <svg  xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill={"currentColor"} viewBox={"0 0 24 24"}>{/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}<path d="M3 13h8v8h2v-8h8v-2h-8V3h-2v8H3z"></path></svg>
                 </button>

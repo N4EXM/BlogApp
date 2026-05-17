@@ -11,8 +11,8 @@ const UserPosts = () => {
             id: 0,
             title: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
             thumbnail: 'https://picsum.photos/seed/2/960/544',
-            excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
-            mainContent: `<p>hi this is a post</p>`,
+            excerpt: '1Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
+            mainContent: `<p>1hi this is a post</p>`,
             url: 'Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit.',
             tags: [],
             metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
@@ -23,8 +23,8 @@ const UserPosts = () => {
             id: 1,
             title: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit1, amet consectetur adipisicing elit.',
             thumbnail: 'https://picsum.photos/seed/3/960/544',
-            excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
-            mainContent: `<p>hi this is a post</p>`,
+            excerpt: '2Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
+            mainContent: `<p>2hi this is a post</p>`,
             url: 'Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elite.',
             tags: [],
             metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
@@ -35,8 +35,8 @@ const UserPosts = () => {
             id: 2,
             title: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit2, amet consectetur adipisicing elit.',
             thumbnail: 'https://picsum.photos/seed/4/960/544',
-            excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
-            mainContent: `<p>hi this is a post</p>`,
+            excerpt: '3Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
+            mainContent: `<p>3hi this is a post</p>`,
             url: 'Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elite.',
             tags: [],
             metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
@@ -91,9 +91,26 @@ const UserPosts = () => {
         },
     ])
     
-    const handlePostSelect = (post) => {
-        setSelectedPost({...post})
-        setPostView(2)
+    const handlePostSelect = (post, isNew) => {
+
+        if (isNew === true && post === null) {
+            setSelectedPost({
+                id: null,
+                title: '',
+                thumbnail: null,
+                excerpt: '',
+                mainContent: ``,
+                url: '',
+                tags: [],
+                metaDesc: '',
+                category: '',
+                date: ''
+            })    
+        }
+        else {
+            setSelectedPost({...post})
+        }
+        setPostView(1)
     }
 
     const handleStartNewPost = () => {
@@ -109,7 +126,7 @@ const UserPosts = () => {
             category: '',
             date: ''
         })
-        setPostView(1)
+        setPostView(2)
     }
 
     return (
@@ -127,7 +144,6 @@ const UserPosts = () => {
             <PostsViewer
                 posts={posts}
                 handlePostSelect={handlePostSelect}
-                handleStartNewPost={() => handleStartNewPost()}
             />
 
             <PostCreator

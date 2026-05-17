@@ -29,20 +29,19 @@ const PostCreator = ({
                         <h3
                             className='text-center text-sm text-text/60 w-80'
                         >
-                            Select a post to edit it, or click the plus button to create a new button
+                            Select a post to edit it, or click the plus button to create a new post.
                         </h3>
                     </div>
 
                 </div>
             )
-        case(1): 
+        case(1): // new post
             return (
                 <PostContentContainer
                     selectedPost={selectedPost}
                 />
             )
-        
-        case(2): // new post
+        case(2): // updating post
             return (
                 <PostContentContainer
                     selectedPost={selectedPost}

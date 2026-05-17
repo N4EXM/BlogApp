@@ -1,4 +1,4 @@
-import React, { cloneElement, useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { EditorContext, EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from '@tiptap/extension-placeholder'
@@ -7,7 +7,7 @@ import Blockquote from "@tiptap/extension-blockquote";
 import Link from "@tiptap/extension-link";
 import Toolbar from "../btns/Toolbar";
 
-const ArticleTab = ({ content, handleChangeContent }) => {
+const ArticleTab = ({ content = ``, handleChangeContent }) => {
     
     const editor = useEditor({
         extensions: [
@@ -45,6 +45,14 @@ const ArticleTab = ({ content, handleChangeContent }) => {
     });
 
     const providerValue = useMemo(() => ({ editor }), [editor])
+
+    useEffect(() => {
+        if (!editor) return
+    
+            // Always update, even with empty content
+            const newContent = content || '' 
+            editor.commands.setContent(newContent)
+    }, [editor, content])  
 
     return (
         <EditorContext value={providerValue}>
