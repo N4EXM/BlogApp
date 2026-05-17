@@ -13,7 +13,7 @@ const DropDownBox = ({ children, name = 'field', isRequired }) => {
                 className='flex flex-row w-full h-fit items-center justify-between'
             >
                 <h2
-                    className='font-medium'
+                    className='font-medium text-primary'
                 >
                     {name}<span className='text-rose-500'>{isRequired && '*'}</span>
                 </h2>

@@ -14,7 +14,7 @@ const UserPosts = () => {
             excerpt: '1Lorem ipsum dolor sit amet consectetur adipisicing elit. Error animi dolores nostrum natus unde atque consectetur nobis ut, porro sit esse dolorum quaerat doloremque vel aut? Voluptatibus quam quasi deserunt.',
             mainContent: `<p>1hi this is a post</p>`,
             url: 'Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit.',
-            tags: [],
+            tags: ["javascript", "programming",],
             metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
             category: 'Tech',
             date: '22/01/26'
@@ -111,22 +111,6 @@ const UserPosts = () => {
             setSelectedPost({...post})
         }
         setPostView(1)
-    }
-
-    const handleStartNewPost = () => {
-        setSelectedPost({
-            id: null,
-            title: '',
-            thumbnail: null,
-            excerpt: '',
-            mainContent: ``,
-            url: '',
-            tags: [],
-            metaDesc: '',
-            category: '',
-            date: ''
-        })
-        setPostView(2)
     }
 
     return (

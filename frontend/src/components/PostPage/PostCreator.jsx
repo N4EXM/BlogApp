@@ -19,7 +19,7 @@ const PostCreator = ({
                     </svg>
 
                     <div
-                        className='flex flex-col gap-1 w-fit h-fit items-center justify-center'
+                        className='flex flex-col gap-0.5 w-fit h-fit items-center justify-center'
                     >
                         <h2
                             className='text-text/70 text-lg font-medium'

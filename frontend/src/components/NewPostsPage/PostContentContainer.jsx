@@ -7,7 +7,7 @@ import RichTextInput from '../inputs/RichTextInput'
 import Toolbar from '../btns/Toolbar'
 import ArticleTab from './ArticleTab'
 import UrlBox from './UrlBox'
-import TagsBox from './TagsBox'
+import LabelBox from './LabelBox'
 
 const PostContentContainer = ({ selectedPost = {} }) => {
 
@@ -44,30 +44,12 @@ const PostContentContainer = ({ selectedPost = {} }) => {
 
     }
 
-    const handleTagChange = (selectedTag, availableTags) => {
+    const handleTagChange = (tag) => {
 
-        if (post.tags.includes(selectedTag)) { // checks if the tag is already selected
-            
-            // filters out the tag
-            const filteredTags = post.tags.filter(tag => tag !== selectedTag)
-            // adds the tag
-            setPost({ ...post, tags: filteredTags })
+    }
 
-            return [...availableTags, selectedTag]
-
-        }
-        else { // adds the tag to the post tags
-
-            // add the tag to the post
-            setPost({ ...post, tags: [...post.tags, selectedTag] })
-
-            // gets rid of the tag for the available tag array
-            const filteredTags = availableTags.filter(tag => tag !== selectedTag)
-
-            return filteredTags
-
-        }
-
+    const handleCategoryChange = (cat) => {
+        setPost({...post, category: cat})
     }
 
     useEffect(() => {
@@ -141,14 +123,16 @@ const PostContentContainer = ({ selectedPost = {} }) => {
                     className={`${currentTab === 'SEO' ? 'flex' : 'hidden'} p-5 flex-col gap-4 w-full overflow-y-scroll scrollbar-hide h-full`}
                 >
 
+                    <LabelBox
+                        handleCategoryChange={handleCategoryChange}
+                        handleTagChange={handleTagChange}
+                        currentCategory={post.category}
+                        currentTags={post.tags}
+                    />
+
                     <UrlBox
                         titleStr={post.title}
                         handleUrlChange={handleSEOChange}
-                    />
-
-                    <TagsBox
-                        handleTagChange={handleTagChange}
-                        currentTags={post.tags}
                     />
 
                 </div>
