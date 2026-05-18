@@ -7,6 +7,7 @@ import UserPosts from './pages/dashboardPages/UserPosts'
 import UserNewPost from './pages/dashboardPages/UserNewPost'
 import UserAssets from './pages/dashboardPages/UserAssets'
 import CommentsPage from './pages/dashboardPages/CommentsPage'
+import PostPreview from './pages/default/PostPreview'
 
 
 const App = () => {
@@ -47,6 +48,13 @@ const App = () => {
           path='/Comments'
           element={
             <CommentsPage/>
+          }
+        />
+
+        <Route
+          path='/Posts/Preview'
+          element={
+            <PostPreview/>
           }
         />
 

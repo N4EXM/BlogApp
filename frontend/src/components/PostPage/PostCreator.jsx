@@ -39,12 +39,14 @@ const PostCreator = ({
             return (
                 <PostContentContainer
                     selectedPost={selectedPost}
+                    isNewPost={true}
                 />
             )
         case(2): // updating post
             return (
                 <PostContentContainer
                     selectedPost={selectedPost}
+                    isNewPost={false}
                 />
             )
     }

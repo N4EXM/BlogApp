@@ -4,6 +4,7 @@ import PostsViewer from '../../components/PostPage/PostsViewer'
 import AnalyticsCard from '../../components/PostPage/AnalyticsCard'
 import PostCreator from '../../components/PostPage/PostCreator'
 
+
 const UserPosts = () => {
 
     const [posts, setPosts] = useState([
@@ -106,11 +107,12 @@ const UserPosts = () => {
                 category: '',
                 date: ''
             })    
+            setPostView(1)
         }
         else {
+            setPostView(2)
             setSelectedPost({...post})
         }
-        setPostView(1)
     }
 
     return (
