@@ -18,7 +18,10 @@ const UserPosts = () => {
             tags: ["javascript", "programming",],
             metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
             category: 'Tech',
-            date: '22/01/26'
+            date: '22/01/26',
+            likes: 20000,
+            shares: 10000,
+            views: 10400
         },
         {
             id: 1,
@@ -30,7 +33,10 @@ const UserPosts = () => {
             tags: [],
             metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
             category: 'Nature',
-            date: '22/01/26'
+            date: '22/01/26',
+            likes: 20000,
+            shares: 10000,
+            views: 10400
         },
         {
             id: 2,
@@ -42,7 +48,10 @@ const UserPosts = () => {
             tags: [],
             metaDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla beatae voluptates odit necessitatibus officiis soluta architecto vitae dolorem. Amet sit excepturi commodi itaque natus consectetur dignissimos. Veritatis, quaerat vero!',
             category: 'Food',
-            date: '22/01/26'
+            date: '22/01/26',
+            likes: 20000,
+            shares: 10000,
+            views: 10400
         },
     ])
     const [postView, setPostView] = useState(0) // 0: empty state, 1: new post, 2: editing post not related to the component PostsView

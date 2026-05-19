@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from './Sidebar'
-import Navbar from './Navbar'
+import DashboardNavbar from './DashboardNavbar'
 
 const DashboardLayout = ({ children }) => {
     return (
@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }) => {
             <div
                 className='w-full h-full flex flex-col gap-0'
             >
-                <Navbar/>
+                <DashboardNavbar/>
                 <div
                     className='w-full h-full p-5 grid grid-cols-16 grid-rows-16 gap-4'
                 >

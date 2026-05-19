@@ -45,7 +45,6 @@ const LabelBox = ({
 
     const handleActiveTags = () => {
         const filterTags = tags.filter((tag) => !currentTags.includes(tag))
-        console.log(filterTags)
         setTags(filterTags)
     }
 

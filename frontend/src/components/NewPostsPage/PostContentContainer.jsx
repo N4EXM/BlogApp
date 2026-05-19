@@ -8,6 +8,7 @@ import Toolbar from '../btns/Toolbar'
 import ArticleTab from './ArticleTab'
 import UrlBox from './UrlBox'
 import LabelBox from './LabelBox'
+import { Link } from 'react-router-dom'
 
 const PostContentContainer = ({ 
     selectedPost = {},
@@ -154,7 +155,9 @@ const PostContentContainer = ({
                 <div
                     className='absolute left-0 bottom-0 w-full h-fit bg-background flex flex-row items-center justify-end gap-2 p-2 rounded-b'
                 >
-                    <button
+                    <Link 
+                        to={'/Posts/preview'}
+                        state={{ post:post }}
                         className='p-2 px-3 rounded bg-secondary/50 flex flex-row items-center gap-2 text-sm text-primary hover:bg-primary hover:text-background duration-200'
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 256 256">
@@ -163,7 +166,7 @@ const PostContentContainer = ({
                         <span>
                             Preview
                         </span>
-                    </button>
+                    </Link >
                     <button
                         className='p-2 px-3 rounded bg-primary flex flex-row items-center gap-2 text-sm text-background hover:bg-text/80 duration-200'
                     >

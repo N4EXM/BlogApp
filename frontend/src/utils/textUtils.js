@@ -12,3 +12,13 @@ export function truncateText(str, maxLength) {
     }
     return str;
 }
+
+export const formatCompactNumber = (value, maxDecimals = 1) => {
+    if (value === undefined || value === null || isNaN(value)) return '0';
+
+    return new Intl.NumberFormat('en-US', {
+        notation: 'compact',
+        compactDisplay: 'short',
+        maximumFractionDigits: maxDecimals
+    }).format(value);
+};

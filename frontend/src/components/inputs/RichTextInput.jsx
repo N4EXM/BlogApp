@@ -121,11 +121,15 @@ const RichTextInput = ({
 
   useEffect(() => {
     if (!editor) return
-
-    // Always update, even with empty content
-    const newContent = content || '' 
-    editor.commands.setContent(newContent)
-  }, [editor, content])  
+    
+    const currentContent = editor.getHTML()
+    const newContentValue = content || ''
+    
+    // Only update if the content has actually changed externally
+    if (currentContent !== newContentValue) {
+      editor.commands.setContent(newContentValue)
+    }
+  }, [editor, content])
 
   return (
     <EditorContext.Provider value={providerValue}>
