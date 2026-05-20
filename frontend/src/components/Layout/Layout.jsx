@@ -1,11 +1,17 @@
 import React from 'react'
+import Navbar from './Navbar'
 
 const Layout = ({ children }) => {
     return (
         <div
-            className='grid grid-cols-12 font-poppins w-full bg-slate-200/50 min-h-screen p-4 items-start justify-start gap-4'
+            className='flex flex-col font-poppins w-full bg-slate-200/50 min-h-screen items-start justify-start relative overflow-hidden'
         >
-            {children}
+            <Navbar/>
+            <div
+                className='flex flex-col w-full h-full p-10 px-20'
+            >
+                {children}
+            </div>
         </div>
     )
 }

@@ -153,7 +153,7 @@ const Toolbar = ({ hiddenComm = [] }) => {
                             onClick={comm.command}
                             title={comm.btnTitle}
                             type='button'
-                            disabled={!comm.isAllowed}
+                            disabled={comm.isAllowed}
                         >
                             {comm.icon}
                         </button>
@@ -172,7 +172,7 @@ const Toolbar = ({ hiddenComm = [] }) => {
                             onClick={comm.command}
                             title={comm.btnTitle}
                             type='button'
-                            disabled={!comm.isAllowed}
+                            disabled={comm.isAllowed}
                         >
                             {comm.icon}
                         </button>
@@ -191,7 +191,7 @@ const Toolbar = ({ hiddenComm = [] }) => {
                             onClick={comm.command}
                             title={comm.btnTitle}
                             type='button'
-                            disabled={!comm.isAllowed}
+                            disabled={comm.isAllowed}
                         >
                             {comm.icon}
                         </button>
@@ -228,7 +228,7 @@ const Toolbar = ({ hiddenComm = [] }) => {
                             onClick={comm.command}
                             title={comm.btnTitle}
                             type='button'
-                            disabled={!comm.isAllowed}
+                            disabled={comm.isAllowed}
                         >
                             {comm.icon}
                         </button>

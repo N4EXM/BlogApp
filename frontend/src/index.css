@@ -42,6 +42,10 @@
         @apply text-primary
     }
 
+    .tiptap {
+        @apply text-text
+    }
+
     /* Unordered list styles */
     .tiptap ul {
         list-style-type: disc;
